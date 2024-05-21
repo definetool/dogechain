@@ -1,19 +1,17 @@
 
 
-const File = require('@definejs/file');
 const Block = require('./modules/Block');
-
+const Fail = require('./modules/Fail');
 const { console, } = require('./lib/Console');
-
-
 
 let beginIndex = Number(process.argv[2] || '1');
 let endIndex = beginIndex + Number(process.argv[3] || '100000');
 let MAX_COUNT = 4;
 
 
-
 (async function () {
+    Fail.clear();
+
     for (let i = beginIndex; i < endIndex; i++){
         let block = null;
         let data = null;
@@ -34,7 +32,7 @@ let MAX_COUNT = 4;
 
         if (!data) {
             console.log(`----已超过重试次数，已放弃----`.bgRed);
-            File.append('./cache/fail/blocks.txt', `${i},\n`);
+            Fail.add(i);
             continue;
         }
 

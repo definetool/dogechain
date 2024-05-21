@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html
+  class="no-js"
+  lang="en"
+  xml:lang="en"
+  >
+  <head>
+    <!--
+        ░░░░░░░░░▄░░░░░░░░░░░░░░▄
+        ░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌ Wow
+        ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐
+        ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+        ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+        ░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌
+        ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒▌ so source
+        ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+        ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌
+        ░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌
+        ▌▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒▐
+        ▐▒▒▐▀▐▀▒░▄▄▒▄▒▒▒▒▒▒░▒░▒░▒▒▒▒▌
+        ▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒▒▒░▒░▒░▒▒▐
+        ░▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒░▒░▒░▒░▒▒▒▌
+        ░▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▄▒▒▐ y u view this?
+        ░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌
+        ░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀
+        ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀
+        ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀ much code
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Dogecoin (DOGE) Explorer — Dogechain&trade;</title>
+    <meta name="description" content="Dogechain helps you search the Dogecoin network for addresses, transactions, blocks. Includes a free developer API." />
+    <meta name="robots" content="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://dogechain.info/"/>
+
+    <meta property="og:title" content="Dogecoin (DOGE) Explorer — Dogechain&trade;" />
+    <meta property="og:description" content="Dogechain helps you search the Dogecoin network for addresses, transactions, blocks. Includes a free developer API." />
+    <meta property="og:url" content="https://dogechain.info" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://dogechain.info/img/touch-icon-iphone-retina.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Dogechain" />
+    <meta name="twitter:title" content="Dogecoin (DOGE) Explorer — Dogechain&trade;" />
+    <meta name="twitter:description" content="Dogechain helps you search the Dogecoin network for addresses, transactions, blocks. Includes a free developer API." />
+    <meta name="twitter:image" content="https://dogechain.info/img/touch-icon-iphone-retina.png" />
+    
+    <meta name="keywords" content="dogechain,dogecoin,dogecoin explorer,doge explorer,dogecoin blockchain,dogecoin blockchain explorer,doge blockchain explorer,doge api,dogecoin api,doge blockchain,doge address,doge txid,doge transaction,doge block,dogechain official,dogechain tm" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Dogecoin (DOGE) Explorer — Dogechain&trade;","description":"Dogechain helps you search the Dogecoin network for addresses, transactions, blocks. Includes a free developer API.","url":"https://dogechain.info/","image":"https://dogechain.info/img/touch-icon-iphone-retina.png","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://dogechain.info/search?query={query}"},"query-input":"required name=query"}}</script>
+    
+    <!-- FavIcon -->
+    <link rel="icon" type="image/ico" href="/favicon.png">
+
+    <!-- PrettyCheckable Styles -->
+    <link rel='stylesheet' type='text/css' href='/content/css/plugins/prettycheckable/prettyCheckable.css'>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/content/css/sangoma-blue.css">
+
+    <!-- JS Libs -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/jquery.timeago.min.js"></script>
+    <script src="/js/old/modernizr.js"></script>
+
+  </head>
+
+<body>
+    <!-- Main page header -->
+    <header id="header" class="container">
+
+      <h1>
+	<!-- Main page logo -->
+	<a href="/">Dogechain&trade;</a>
+	
+	<!-- Main page headline -->
+	<span>Dogecoin Explorer Since 2013</span>
+      </h1>
+
+      <!-- Main navigation -->
+      <nav class="main-navigation navbar navbar-default" role="navigation">
+
+	<!-- Collapse navigation for mobile -->
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-navigation-collapse">
+	    <span class="elusive icon-home"></span>  Menu
+	  </button>
+	</div>
+
+	
+	<!-- /Collapse navigation for mobile -->
+
+	<!-- Navigation -->
+	<div class="main-navigation-collapse collapse navbar-collapse">
+
+	  <ul class="nav navbar-nav">
+	    <li class="">
+	      <a href="/"><span class="elusive icon-home"></span> Home</a>
+	    </li>
+            <li>
+              <a href="/wallet/"><span class="elusive icon-credit-card"></span> Dogecoin Wallet</a>
+            </li>
+            <li class="">
+              <a href="/api"><span class="elusive icon-cogs"></span> Dogecoin API</a>
+            </li>
+            <li>
+              <a href="https://chain.so/" target=_blank><span class="elusive icon-website"></span> Bitcoin Explorer</a>
+            </li>
+	  </ul>
+	  
+	  <form action="/search" class="navbar-form navbar-right" role="search" method="post">
+	    <div class="form-group">
+	      <input type="text" name="query" class="form-control" placeholder="Type here to search&hellip;">
+	      </div>
+	    <button type="submit" class="btn btn-default"><span class="elusive icon-search"></span></button>
+	    </form>
+	  </div>
+	</nav>
+    </header>
+
+    <div style="min-height: 80%;">
+
+      
+      <div id="wrapper">
+  <section class="container" role="main">
+    
+    <div class="row">
+      <article class="col-sm-12">
+	<div class="data-block">
+	  <header>
+	    <h2>Block #5436</h2>
+	  </header>
+	  <section>
+	    <h3>Details</h3>
+	    <table class="table">
+	      <tbody>
+		<tr>
+		  <td>Hash</td>
+		  <td>cd081905f724abb3a2011c08e977c61c48ac7c59bdb4b3d153815b4602c85eef</td>
+		</tr>
+		<tr>
+		  <td>Previous Block</td>
+		  <td><a href="/block/394437416d1449ca8be3b8f525f71c19d355c7b2dc4a2f03071fcbd7f019fe7a">394437416d1449ca8be3b8f525f71c19d355c7b2dc4a2f03071fcbd7f019fe7a</a></td>
+		</tr>
+		<tr>
+		  <td>Next Block</td>
+		  <td>
+		    <a href="/block/9ae002fc88a87a250ceeb36f46f312bf3c6c047a4558cbed22bf38accb31d317">9ae002fc88a87a250ceeb36f46f312bf3c6c047a4558cbed22bf38accb31d317</a>
+		    &nbsp;</td>
+		<tr>
+		<tr>
+		  <td>Height</td>
+		  <td>5,436</td>
+		</tr>
+		<tr>
+		  <td>Version</td>
+		  <td>1</td>
+		</tr>
+		<tr>
+		  <td>Merkle Root</td>
+		  <td>13d448fd39e40bda1f4bd4f73a5d9fcfb8435101c05f5e3d1ed35832e6e2244c</td>
+		</tr>
+		<tr>
+		  <td>Time</td>
+		  <td>2013-12-11 00:04:10 UTC</td>
+		</tr>
+		<tr>
+		  <td>Difficulty</td>
+		  <td>2.56844548 (Bits: 1c63ab6f)</td>
+		</tr>
+		<tr>
+		  <td>Nonce</td>
+		  <td>296181248</td>
+		</tr>
+		<tr>
+		  <td>Transactions</td>
+		  <td>13</td>
+		</tr>
+		<tr>
+		  <td>Coins Received</td>
+		  <td>382,119.97890000</td>
+		</tr>
+		<tr>
+		  <td>Network Fees</td>
+		  <td>0.00110000 DOGE</td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <h3>Transactions</h3>
+	    <div class="table-responsive">
+	      <table class="table table-hover">
+		<tr>
+		  <th>Transaction</th>
+		  <th>Fee</th>
+		  <th>Recipients</th>
+		  <th>Amounts</th>
+		  <th>Values</th>
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/c9a5ca49ac973027f8bcb1fbcc08a94fb4ce4eaddbc2bfc7e6d5237444f13df0">
+
+		      Block Reward
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00000000
+		  </td>
+
+		  <td>
+		    <a href="/address/DSiT8wLBsaqSDNXDTxNSdPRx5BwXAwvZQV">DSiT8wLBsaqSDNXDTxNSdPRx5BwXAwvZQV</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    366,666.00110000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.37 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/08889ab831ae3cf6f8475069b25f61822a31a0a77385b0264d1b25822564598a">
+
+		      &hellip;2564598a
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00000000
+		  </td>
+
+		  <td>
+		    <a href="/address/DB1XTLD5eX3vVezKVkA7sMBMX5F9iGQTgs">DB1XTLD5eX3vVezKVkA7sMBMX5F9iGQTgs</a><br>
+		    <a href="/address/D7sGBuHz8oJvuVgiVEKWdCTs661g9bJfTy">D7sGBuHz8oJvuVgiVEKWdCTs661g9bJfTy</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    480.00000000<br>
+		    20.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/5ff59b36a8914ad102eaa9eca5f7f0394b79bb13ffffd9b9bab591c6a411d93e">
+
+		      &hellip;a411d93e
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DAw7sYY1YfNmNXwrdXCG8T4ueQCaLR5oct">DAw7sYY1YfNmNXwrdXCG8T4ueQCaLR5oct</a><br>
+		    <a href="/address/DGjC7FBLNT9V99mDMphTx4dfknEShkHYcE">DGjC7FBLNT9V99mDMphTx4dfknEShkHYcE</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,700.99990000<br>
+		    13.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/2b74b9fb5f33efc11c4ea60cf87ff3b3ded473c84ef643e65b317785a5e6a73d">
+
+		      &hellip;a5e6a73d
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DScJp94fJkc1Fch5rkmgU5KqPt3W7St5EA">DScJp94fJkc1Fch5rkmgU5KqPt3W7St5EA</a><br>
+		    <a href="/address/D8MeuDwXrv4j4SNXrxjiv9AxxQ5qv4EPe4">D8MeuDwXrv4j4SNXrxjiv9AxxQ5qv4EPe4</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    9.99120000<br>
+		    2.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/4cea9fef2f31363a1d2a7f26d0a8ba60b25252885f9d1caa32b0a2676795e26e">
+
+		      &hellip;6795e26e
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DJvTSp8dQhamGNZSLc7E8PTdg6fNcCSnp6">DJvTSp8dQhamGNZSLc7E8PTdg6fNcCSnp6</a><br>
+		    <a href="/address/DHEeFzzjQXssSCmd31YFLBpYBTXkXzTqrY">DHEeFzzjQXssSCmd31YFLBpYBTXkXzTqrY</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,685.99980000<br>
+		    15.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/3d3d4c938da7cbc974b3c226a0a74fab0c56f04b6e37b972d553ecda3495f7ec">
+
+		      &hellip;3495f7ec
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DPPVZF3CNwWT4yahDvJhB8gKjsbUqrG2GU">DPPVZF3CNwWT4yahDvJhB8gKjsbUqrG2GU</a><br>
+		    <a href="/address/DTvPvEJQqWmSP9jKcWopXHa16834pJ8Ja6">DTvPvEJQqWmSP9jKcWopXHa16834pJ8Ja6</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    3.99110000<br>
+		    6.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/a667e98a0f011f95124ab6d9b7b309edfe1a315ab0da1bbf4762159f439642c2">
+
+		      &hellip;439642c2
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DTyvuML5sWsrnuZgqetPYN3wYtkgktAU2G">DTyvuML5sWsrnuZgqetPYN3wYtkgktAU2G</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,674.99970000<br>
+		    11.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/0f64a76b6c662d3b163ceac5f8bf81a4b50e1077cd24659f0048daaf01ffb2d8">
+
+		      &hellip;01ffb2d8
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DARwjghKYrsyeKwwPvuLsuwCVGgG86oAiJ">DARwjghKYrsyeKwwPvuLsuwCVGgG86oAiJ</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,659.99960000<br>
+		    15.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/a534eb0c04179d7e129840abc62288faf2dee111af23ec11d3e5d1fa80b374e3">
+
+		      &hellip;80b374e3
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DDEQhDj9c72quCZ5W83kRUvjuirq9hPYRo">DDEQhDj9c72quCZ5W83kRUvjuirq9hPYRo</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,645.99950000<br>
+		    14.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/8e934771793053d2035c6537a280187d038aa94794d5e9ceb2234e002859ec37">
+
+		      &hellip;2859ec37
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/D79Gz73X8yWafvZgUDgy9hooRsZT4kXftt">D79Gz73X8yWafvZgUDgy9hooRsZT4kXftt</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,633.99940000<br>
+		    12.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/580a4433b578fa9ef6117feed8535f7dfc43a8b381b8c18300b2f5b59cdf7fbb">
+
+		      &hellip;9cdf7fbb
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/D5LXcuRN9SQWF4fj6C1EqwPBuF52uP3SgB">D5LXcuRN9SQWF4fj6C1EqwPBuF52uP3SgB</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,613.99930000<br>
+		    20.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/f6621d625f8e276f4d56c17a741e48c35a98d09239f026c61364f17058078c18">
+
+		      &hellip;58078c18
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DArftNtKMhkobGorgsu8daEoZc5xUhgnhs">DArftNtKMhkobGorgsu8daEoZc5xUhgnhs</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,601.99920000<br>
+		    12.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+		<tr>
+		  <td class="text-center"><a href="/tx/4e07ae5b92f4bf10366171fdc61470c1913340f1aed7f3c4a4fb7c9e29c38ed6">
+
+		      &hellip;29c38ed6
+
+		  </a></td>
+		  
+		  <td class="text-right">
+		    0.00010000
+		  </td>
+
+		  <td>
+		    <a href="/address/DSeza5s6oZ2WJrqdCG14HRxcRgPhLC6exe">DSeza5s6oZ2WJrqdCG14HRxcRgPhLC6exe</a><br>
+		    <a href="/address/DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8">DNWdLvK8yZj4c1ExpKrLAWEGKNWL2oPcz8</a><br>
+		  </td>
+
+		  <td class="text-right">
+		    1,583.99910000<br>
+		    18.00000000<br>
+		  </td>
+
+		  <td class="text-right">
+		     0.00 &cent;<br>
+		     0.00 &cent;<br>
+		  </td>
+
+		</tr>
+
+		</table>
+	      </div>
+	    </section>
+	  </div>
+	</article>
+      </div>
+    
+  </section>
+  <!-- /Main page container -->
+  
+</div>
+<!-- /Full height wrapper -->
+
+    </div>
+    <hr>
+    
+    <footer id="footer">
+      <div class="container">
+
+	<!-- Footer info -->
+	<p><a href="https://block.io" target="_blank">Block.io, Inc.</a> | <a href="/terms">User Agreement</a> | <a href="/privacy">Privacy Policy</a> | Dogechain is a trademark of Block.io, Inc. since 2013. Such wow.</p>
+
+	</div>
+      </footer>
+    <!-- /Main page footer -->
+    <!-- Bootstrap scripts -->
+    <script src="/js/old/bootstrap.min.js"></script>
+
+    <!-- PrettyCheckable checkbox and radio -->
+    <script src="/content/js/plugins/prettyCheckable/prettyCheckable.js"></script>
+        
+        <!-- jQuery DataTable -->
+	<script src="/content/js/plugins/dataTables/jquery.datatables.min.js"></script>
+        
+        <!-- Moment.JS and LiveStamp -->
+	<script src="/content/js/moment/moment.min.js"></script>
+        <script src="/content/js/livestamp/livestamp.min.js"></script>
+
+	<!-- jQuery Flot Charts -->
+	<!--[if lte IE 8]>
+	    <script language="javascript" type="text/javascript" src="/content/js/plugins/flot/excanvas.min.js"></script>
+	    <![endif]-->
+	<script src="/content/js/plugins/flot/jquery.flot.min.js"></script>
+	<script src="/content/js/plugins/flot/jquery.flot.resize.min.js"></script>
+        <script src="/content/js/reconnecting-websocket.js"></script>
+        
+        <script src="/content/js/numeral.min.js"></script>
+
+        <a href="/address/AC8Q9Z4i4sXcbW7TV1jqrjG1JEWMdLyzcy">
+            <img id="doge" src="/content/img/doge.png" title="Click to see the Official Dogecoin Developer Fund address." />
+        </a>
+        
+        <!--- TODO: Put this in some nice CSS --->
+        <style type="text/css">
+          img#doge {
+          position: fixed;
+          bottom: -75px;
+          margin: 0;
+          right: 10%;
+          transition-property:bottom;
+          transition-duration: 0.5s;
+          transition-timing-function: ease-out;
+          }
+          
+          img#doge:hover {
+          bottom: 0;
+          }
+          
+          @media screen and (max-width: 600px) {
+          img#doge {
+          display: none;
+          }
+          }
+        </style>        
+	
+	<script type="text/javascript" src="/content/js/plugins/qrcode/jquery.qrcode.min.js"></script>
+	<script type="text/javascript" src="/js/blockchain_explorer_misc.js"></script>
+    </body>
+</html>
+
