@@ -1,5 +1,12 @@
 
-const Fail = require('./modules/Fail');
+const Block = require('./modules/Block');
 
-Fail.clear();
 
+let MAX_COUNT = 4;
+
+
+(async function () {
+
+    await Block.retryFails(MAX_COUNT);
+    
+})();

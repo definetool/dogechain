@@ -13,11 +13,11 @@ let validCount = 0;
 let all = [];
 
 
-files.forEach((file) => {
+files.forEach((file, index) => {
     let { addresses, } = File.readJSON(file);
     let { length, } = addresses;
 
-    console.log(file, `--->`, length);
+    console.log(`${index+1}/${files.length}`.gray, file.cyan, `--->`, length);
 
     if (length > 0) {
         validCount++;
@@ -26,7 +26,7 @@ files.forEach((file) => {
 });
 
 
-let list = [...new Set(all)];
+let list = [...new Set(all)].sort();
 
 console.log(`----------------------------------------`.bgGreen);
 
