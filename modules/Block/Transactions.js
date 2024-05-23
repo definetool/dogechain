@@ -6,9 +6,9 @@ module.exports = {
 
         // rows = rows.slice(1,2);
 
-        let addresses = new Set();
+      
 
-        let transactions = rows.map((tr) => {
+        let list = rows.map((tr) => {
             let cells = $(tr).find('>td').toArray();
             
             //如：`/tx/71cff63ada6d55ec2eb9b4ecb5b3a25f45cd8b2e656a637ba4bad99ad2d93f97`
@@ -17,11 +17,6 @@ module.exports = {
 
             let recipients = $(cells[2]).find('>a,>em').toArray().map((a) => {
                 let addr = $(a).text().replace(/\s/g, '');
-
-                if (addr != 'op_return' && addr != 'nonstandard') {
-                    addresses.add(addr);
-                }
-
                 return addr;
             });
 
@@ -32,9 +27,8 @@ module.exports = {
             return { tx, fee, recipients, amounts, };
         });
 
-        addresses = [...addresses];
 
-        return { transactions, addresses, };
+        return list;
    
     },
 };

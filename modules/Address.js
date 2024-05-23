@@ -36,6 +36,22 @@ class Address {
     }
 
 
+    static get({ transactions, }) {
+        let list = new Set();
+
+        transactions.forEach(({ recipients, }) => {
+            recipients.forEach((item) => {
+                if (item != 'op_return' && item != 'nonstandard') {
+                    list.add(item);
+                }
+            });
+        });
+
+        list = [...list,];
+
+        return list;
+    }
+
 }
 
 

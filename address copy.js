@@ -8,45 +8,21 @@ let blocks = Cache.getBlocks();
 let validCount = 0;
 let all = [];
 
-let total = 0;
-let groups = [];
-let group = null;
 
-// //for fast test
-// blocks = blocks.slice(0, 10);
-
-let t0 = new Date();
-
-blocks.forEach((no, index) => {
-    if (index % 1000 == 0) {
-        group = [];
-        groups.push(group);
-        console.log('创建分组', groups.length);
-    }
-
-
+blocks.slice(0,10).forEach((no, index) => {
     let file = `block/${no}.json`;
     let { transactions, } = Cache.read(file, false);
     let list = Address.get({ transactions, });
+    let { length, } = list;
 
-    if (list.length > 0) {
+    if (length > 0) {
         validCount++;
-        total += list.length;
-        group.push(...list);
+        all.push(...list);
     }
 
-    console.log(`${index + 1}/${blocks.length}`.gray, `${file.cyan} ---> ${colors.yellow(list.length)} | ${colors.blue(total)}`);
+    console.log(`${index + 1}/${blocks.length}`.gray, `${file.cyan} ---> ${colors.yellow(length)} | ${colors.blue(all.length)}`);
 });
 
-
-let t1 = new Date();
-let tt = t1 - t0;
-console.log(tt/1000);
-
-console.log(`───────────────────────────────────────────────`.bgGreen);
-
-Cache.write(`json/address/list.json`, groups);
-return;
 
 let list = [...new Set(all)];
 

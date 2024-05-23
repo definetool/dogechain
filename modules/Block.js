@@ -12,11 +12,11 @@ let mapper = new Map();
 
 class Block {
 
-    constructor(height = 1) {
-        let url = `block/${height}`;
+    constructor(no = 1) {
+        let url = `block/${no}`;
 
         let meta = {
-            height,
+            no,
             url,                //
         };
 
@@ -34,19 +34,17 @@ class Block {
 
         let { $, html, } = data;
         let details = Details.parse($);
-        let { transactions, addresses, } = Transactions.parse($);
+        let transactions = Transactions.parse($);
 
-        return { html, details, transactions, addresses, };
+        return { html, details, transactions, };
     }
-
-  
 
     write(data) {
         let meta = mapper.get(this);
-        Cache.write(`block/${meta.height}`, data);
+        Cache.write(`block/${meta.no}`, data);
     }
 
-    static async load(list, count) {
+    static async load(list, count = 1) {
         let isArray = Array.isArray(list);
         let len = isArray ? list.length : list.end - list.begin + 1;
 
@@ -72,8 +70,8 @@ class Block {
 
             if (data) {
                 //data 里还有个 html 字段，内容较多，要去掉。
-                let { details, transactions, addresses, } = data;
-                block.write({ details, transactions, addresses, });
+                let { details, transactions, } = data;
+                block.write({ details, transactions, });
             }
             else {
                 console.log(`----已超过重试次数，已放弃----`.bgRed);
@@ -97,6 +95,8 @@ class Block {
         }
 
     }
+
+   
 }
 
 
