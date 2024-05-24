@@ -22,8 +22,8 @@ module.exports = {
         let difficulty = $(rows[i++]).find('>td:eq(1)').text();
         let nonce = $(rows[i++]).find('>td:eq(1)').text();
         let transactions = $(rows[i++]).find('>td:eq(1)').text();
-        let receivedCoins = $(rows[i++]).find('>td:eq(1)').text();
-        let networkFees = $(rows[i++]).find('>td:eq(1)').text();
+        let receivedCoins = $(rows[i++]).find('>td:eq(1)').text().split(',').join('');  //"572,478.00000000"
+        let networkFees = $(rows[i++]).find('>td:eq(1)').text().split(' ')[0]; // "0.00000000 DOGE"
 
 
       
@@ -40,8 +40,8 @@ module.exports = {
             difficulty,
             nonce,
             transactions: Number(transactions),
-            receivedCoins,
-            networkFees,
+            receivedCoins: Number(receivedCoins),
+            networkFees: Number(networkFees),
         };
     },
 };

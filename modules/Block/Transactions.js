@@ -21,10 +21,16 @@ module.exports = {
             });
 
             let amounts = $(cells[3]).html().split('<br>').slice(0, -1).map((v) => {
-                return v.replace(/,|\s/g, '');
+                v = v.replace(/,|\s/g, '');
+                return Number(v);
             });
 
-            return { tx, fee, recipients, amounts, };
+            return {
+                tx,
+                fee: Number(fee),
+                recipients,
+                amounts,
+            };
         });
 
 
