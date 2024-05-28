@@ -53,6 +53,12 @@ class Block {
             let block = null;
             let data = null;
             let no = isArray ? list[i] : i + list.begin;
+            let file = `block/${no}.json`;
+
+            if (Cache.exists(file)) {
+                console.log(`已存在`.bgYellow, file.gray);
+                continue;
+            }
 
             for (let k = 0; k < count; k++) {
                 if (k > 0) {
