@@ -36,7 +36,7 @@ class Address {
     }
 
 
-    static get({ transactions, }) {
+    static get(transactions) {
         let list = new Set();
 
         transactions.forEach(({ recipients, }) => {

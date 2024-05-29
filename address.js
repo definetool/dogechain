@@ -4,7 +4,7 @@ const Cache = require('./lib/Cache');
 const Address = require('./modules/Address');
 
 
-let blocks = Cache.getBlocks();
+let blocks = Cache.getBlocks('json');
 let validCount = 0;
 let all = [];
 
@@ -12,7 +12,7 @@ let all = [];
 blocks.slice(0,10).forEach((no, index) => {
     let file = `block/${no}.json`;
     let { transactions, } = Cache.read(file, false);
-    let list = Address.get({ transactions, });
+    let list = Address.get(transactions);
     let { length, } = list;
 
     if (length > 0) {

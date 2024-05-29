@@ -1,7 +1,7 @@
 
 
 const File = require('@definejs/file');
-const Cache = require('../../lib/Cache');
+const Cache = require('../lib/Cache');
 
 let file = `./cache/fail/blocks.txt`;
 
@@ -21,8 +21,7 @@ module.exports = exports = {
         list = list.slice(0, -1);
 
         list = list.filter((no) => {
-            let file = Cache.map(`block/${no}.json`);
-            return !File.exists(file);
+            return !Cache.exists(`block/${no}.json`);
         });
 
         list = [...new Set(list)].sort();
