@@ -8,7 +8,7 @@ const Fail = require('./modules/Fail');
 
 module.exports = {
 
-    async start(list) { 
+    async start(list, type = 'json') {
         let isArray = Array.isArray(list);
         let len = isArray ? list.length : list.end - list.begin + 1;
 
@@ -16,10 +16,11 @@ module.exports = {
             let no = isArray ? list[i] : list.begin + i;
             let block = new Block(no);
 
-            if (block.exists()) {
-                console.log(`已存在区块:`.gray, no);
+            if (block.exists(type)) {
+                console.log(`已存在区块:`.gray, `${no}.${type}`.yellow);
                 continue;
             }
+
 
             let html = '';
 
@@ -27,7 +28,7 @@ module.exports = {
                 if (k > 0) {
                     console.log(`<----重试第 ${k} 次---->`.bgMagenta);
                 }
-                
+
                 html = await block.load(true);
 
                 //已成功，不需要再重试。
@@ -36,18 +37,20 @@ module.exports = {
                 }
             }
 
-            if (html) {
-                // block.parse();
-                // block.write();
-            }
-            else {
+            if (!html) {
                 Fail.add(no);
                 console.log(`----超过重试次数，已加入失败列表----`.bgRed);
+                continue;
+            }
+
+            if (type == 'json') {
+                block.parse();
+                block.write();
             }
         }
     },
 
-   
+
 };
 
 

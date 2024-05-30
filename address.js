@@ -8,8 +8,10 @@ let blocks = Cache.getBlocks('json');
 let validCount = 0;
 let all = [];
 
+// test only.
+// blocks = blocks.slice(0, 10);
 
-blocks.slice(0,10).forEach((no, index) => {
+blocks.forEach((no, index) => {
     let file = `block/${no}.json`;
     let { transactions, } = Cache.read(file, false);
     let list = Address.get(transactions);
@@ -20,7 +22,7 @@ blocks.slice(0,10).forEach((no, index) => {
         all.push(...list);
     }
 
-    console.log(`${index + 1}/${blocks.length}`.gray, `${file.cyan} ---> ${colors.yellow(length)} | ${colors.blue(all.length)}`);
+    console.log(`${index + 1}/${blocks.length}`.gray, `${file.cyan} ───> ${colors.yellow(length)} | ${colors.blue(all.length)}`);
 });
 
 

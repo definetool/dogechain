@@ -31,8 +31,8 @@ class Block {
         return html;
     }
 
-  
-    parse() { 
+
+    parse() {
         let meta = mapper.get(this);
         let { html, } = meta;
 
@@ -54,12 +54,12 @@ class Block {
         Cache.write(`${meta.path}.json`, meta.json);
     }
 
-    exists() { 
+    exists(type = 'json') {
         let meta = mapper.get(this);
-        return Cache.exists(`${meta.path}.json`);
+        return Cache.exists(`${meta.path}.${type}`);
     }
 
-   
+
 }
 
 
