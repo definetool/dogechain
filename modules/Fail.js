@@ -21,7 +21,7 @@ module.exports = exports = {
         list = list.slice(0, -1);
 
         list = list.filter((no) => {
-            return !Cache.exists(`block/${no}.json`);
+            return !Cache.exists(`block/${no}.html`);
         });
 
         list = [...new Set(list)].sort();
