@@ -6,7 +6,7 @@ const Details = require('./Block/Details');
 const Transactions = require('./Block/Transactions');
 
 
-let mapper = new Map();
+let mapper = new WeakMap();
 
 class Block {
 
